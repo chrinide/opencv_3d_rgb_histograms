@@ -48,8 +48,10 @@ Updating distances:
       INNER JOIN photolog_histograms AS b
          ON a.id < b.id AND a.bins = b.bins
     WHERE a.bins = 32 AND a.id || '-' || b.id NOT IN
-    (SELECT a.id || '-' || b.id FROM photolog_histograms
+    (SELECT a_id || '-' || b_id FROM photolog_histogram_distances
      WHERE bins = 32));
+
+   REFRESH MATERIALIZED VIEW all_histogram_distances;
 
 Notes:
 
