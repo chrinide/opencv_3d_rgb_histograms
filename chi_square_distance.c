@@ -51,7 +51,7 @@ Datum chi_square_distance(PG_FUNCTION_ARGS) {
     da = ARRPTR(a);
     db = ARRPTR(b);
 
-    // Generate the sums.
+    // Generate the sum
     for (i = 0; i < n; i++) {
         if (*da - *db) {
             sum = sum + ((*da - *db) * (*da - *db) / (*da + *db));
